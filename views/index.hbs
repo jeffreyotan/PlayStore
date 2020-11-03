@@ -1,0 +1,24 @@
+<form action="/search" method="get">
+    <div class="row">
+        <div class="col-5">
+            <label for="categories">Please select the category:</label>
+            <select name="categories" id="categories">
+                {{#each selection}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <button type="submit">Submit</button>
+        </div>
+        <div class="col">
+            {{#if hasData}}
+                <h3>Your search produced the following data:</h3>
+                <ul>
+                    {{#each data}}
+                        <li><a href="/app/{{this.app_id}}">{{this.name}}</a></li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+    </div>
+</form>
